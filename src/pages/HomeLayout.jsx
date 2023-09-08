@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 
 const HomeLayout = () => {
-  return (<div className="">
-    <h1>NAVBAR</h1>
-    <Outlet />
-  </div>
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
   )
 }
 
