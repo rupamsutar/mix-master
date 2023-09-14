@@ -1,4 +1,4 @@
-import { Form, redirect } from 'react-router-dom';
+import { Form, redirect, useNavigation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -16,10 +16,16 @@ export const action = async({request}) => {
     return error;
   }
   
-  return redirect('/');
+  return null;
+  // return redirect('/');
 }
 
 const Newsletter = () => {
+
+  const navigation = useNavigation();
+
+  const isSubmitting = navigation.state === 'submitting'
+
   return (
     <Form className='form' method='POST'>
       <h4 style={{textAlign: 'center', marginBottom: '2rem'}}>our newsletter</h4>
@@ -38,7 +44,7 @@ const Newsletter = () => {
         <label htmlFor="email" className='form-label'>email</label>
         <input type="text" className='form-input' name='email' id='email' required placeholder='use only test@test.com'/>
       </div>
-      <button className="btn btn-block" type='submit' style={{marginTop: '0.5rem'}}>submit</button>
+      <button disabled={isSubmitting} className="btn btn-block" type='submit' style={{marginTop: '0.5rem'}}>{isSubmitting ? 'submitting' : 'submit'}</button>
     </Form>
   )
 }
