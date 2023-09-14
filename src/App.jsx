@@ -3,6 +3,8 @@ import { About, Cocktail, Error, HomeLayout, Landing, Newsletter, SinglePageErro
 import { loader as landingLoader } from "./pages/Landing";
 import {loader as singleCocktailLoader} from "./pages/Cocktail";
 import { action as formAction } from "./pages/Newsletter";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 
 const router = createBrowserRouter([
