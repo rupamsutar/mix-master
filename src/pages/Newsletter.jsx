@@ -1,8 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { Form } from 'react-router-dom';
+
+export const action = async({request}) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+
+  console.log(data)
+
+  return null;
+}
 
 const Newsletter = () => {
   return (
-    <form className='form'>
+    <Form className='form' method='POST'>
       <h4 style={{textAlign: 'center', marginBottom: '2rem'}}>our newsletter</h4>
       {/* name */}
       <div className="form-row">
@@ -20,7 +30,7 @@ const Newsletter = () => {
         <input type="text" className='form-input' name='email' id='email' defaultValue='test@test.com' />
       </div>
       <button className="btn btn-block" type='submit' style={{marginTop: '0.5rem'}}>submit</button>
-    </form>
+    </Form>
   )
 }
 
